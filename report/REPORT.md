@@ -14,26 +14,26 @@
 > *High cosine similarity có nghĩa là hai đoạn văn bản có sự tương đồng rất cao về mặt ngữ nghĩa, ý tưởng hoặc chủ đề (góc giữa hai vector đại diện cho chúng trong không gian đa chiều rất nhỏ), bất kể độ dài của chúng dài ngắn khác nhau ra sao.*
 
 **Ví dụ HIGH similarity:**
-- Sentence A:
-- Sentence B:
-- Tại sao tương đồng:
+- Sentence A: Con mèo đang ngủ say sưa trên chiếc ghế sofa.
+- Sentence B: Một chú mèo con đang nằm lim dim trên chiếc ghế dài ở phòng khách.
+- Tại sao tương đồng: Mặc dù sử dụng các từ vựng khác nhau (sofa vs ghế dài, ngủ say sưa vs nằm lim dim), cả hai câu đều mang cùng một ý nghĩa miêu tả chung một hành động và đối tượng.
 
 **Ví dụ LOW similarity:**
-- Sentence A:
-- Sentence B:
-- Tại sao khác:
+- Sentence A: Con mèo đang ngủ say sưa trên chiếc ghế sofa.
+- Sentence B: Lãi suất ngân hàng trung ương vừa báo cáo mức giảm kỷ lục.
+- Tại sao khác: Hai câu nói về hai chủ đề hoàn toàn không liên quan đến nhau (thú cưng/đời sống hằng ngày vs kinh tế/tài chính vĩ mô).
 
 **Tại sao cosine similarity được ưu tiên hơn Euclidean distance cho text embeddings?**
-> *Viết 1-2 câu:*
+> *Euclidean distance bị ảnh hưởng rất lớn bởi độ dài của văn bản (đếm số lượng từ), khiến một câu tóm tắt ngắn và một đoạn văn dài dù cùng ý nghĩa vẫn bị tính là xa nhau. Cosine similarity giải quyết việc này bằng cách chỉ đo lường "hướng" (ngữ nghĩa) của vector mà bỏ qua "độ lớn" (số lượng từ ngữ), giúp so sánh độ chuẩn xác cao hơn.*
 
 ### Chunking Math (Ex 1.2)
 
 **Document 10,000 ký tự, chunk_size=500, overlap=50. Bao nhiêu chunks?**
-> *Trình bày phép tính:*
-> *Đáp án:*
+> *Trình bày phép tính: ceil((10000 - 50) / (500 - 50))*
+> *Đáp án: 23 chunks*
 
 **Nếu overlap tăng lên 100, chunk count thay đổi thế nào? Tại sao muốn overlap nhiều hơn?**
-> *Viết 1-2 câu:*
+> *Khi overlap tăng lên 100, phép tính trở thành ceil((10000 - 100) / (500 - 100)) = 25, số lượng chunk tăng từ 23 lên 25. Việc tăng overlap giúp bảo toàn ngữ cảnh (context) tốt hơn ở những đoạn ranh giới bị cắt, đảm bảo một ý tưởng, một câu trọn vẹn hoặc một từ khóa quan trọng không bị chặt đứt gãy giữa hai chunks liền kề*
 
 ---
 
